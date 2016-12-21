@@ -1,0 +1,29 @@
+<table class="table table-striped table-bordered table-hover dataTable">
+    <thead>
+    <tr>
+        <th ng-repeat="col in dataTable.cols" class="{{col.sortType}}" ng-click="dataTable.sort(this)">{{col.label}}</th>
+    </tr>
+    <tr ng-repeat="row in dataTable.data">
+        <td ng-repeat="col in dataTable.cols">
+            <span ng-if="!col.cmds">
+                {{row[col.field]}}
+            </span>
+            <span ng-if="col.cmds">
+               <button ng-repeat="cmdNode in col.cmds" class="btn btn-xs btn-primary" ng-click="dataTable.execute(this)">{{cmdNode.label}}&nbsp;</button>
+            </span>
+        </td>
+    </tr>
+    </thead>
+</table>
+<div class="dataTableBar">
+    <div class="textLeft">显示{{dataTable.start}}至{{dataTable.end}}条 共{{dataTable.total}}条</div>
+
+
+    <div class="textRight">
+        <button  ng-click="dataTable.getByIndex(null,-1)">上一页</button>
+        <span ng-repeat="index in dataTable.pageNums" >&nbsp;
+            <a ng-click="dataTable.getByIndex(this.index)">{{index}}</a>&nbsp;
+        </span>
+        <button  ng-click="dataTable.getByIndex(null,1)">下一页</button>
+    </div>
+</div>

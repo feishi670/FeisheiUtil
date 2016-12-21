@@ -1,0 +1,13 @@
+.sortring,.sorting_asc,.sorting_desc{
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+}
+.sortring {
+    background-image: url("img/sort_both.png");
+}
+.sorting_asc {
+    background-image: url("img/sort_asc.png");
+}
+.sorting_desc {
+    background-image: url("img/sort_desc.png");
+}
